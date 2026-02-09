@@ -9,6 +9,7 @@ public class HTTPMethodsDemo {
 	
 	String deviceId;
 	
+	// GET
 	@Test(priority = 1, enabled = false)
 	void getDevice() {
 		given()
@@ -21,6 +22,7 @@ public class HTTPMethodsDemo {
 			.log().all();
 	}
 	
+	//POST
 	@Test(priority = 2)
 	void postDevice() {
 		
@@ -48,6 +50,7 @@ public class HTTPMethodsDemo {
 			
 	}
 	
+	//PUT
 	@Test(priority = 3, dependsOnMethods = {"postDevice"})
 	void putDevice() {
 		given()
@@ -70,6 +73,7 @@ public class HTTPMethodsDemo {
 			.body("name", equalTo("HP Probook 04"))
 			.body(containsString("id"))
 			.log().all();
+		
 			
 	}
 	
