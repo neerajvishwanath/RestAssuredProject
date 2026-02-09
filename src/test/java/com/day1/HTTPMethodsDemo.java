@@ -77,5 +77,9 @@ public class HTTPMethodsDemo {
 			
 	}
 	
+	//DELETE
+	void deleteDevice() {
+		
+	}
 	
 }
