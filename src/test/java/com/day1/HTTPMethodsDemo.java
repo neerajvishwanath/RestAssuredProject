@@ -78,8 +78,16 @@ public class HTTPMethodsDemo {
 	}
 	
 	//DELETE
+	@Test(priority = 4, dependsOnMethods = {"postDevice","putDevice"})
 	void deleteDevice() {
-		
+		given()
+		.when()
+			.delete("https://api.restful-api.dev/objects/"+deviceId)
+		.then()
+			.statusCode(200)
+			.time(lessThan(2000L))
+			.body(containsString("id"))
+			.log().all();
 	}
 	
 }
